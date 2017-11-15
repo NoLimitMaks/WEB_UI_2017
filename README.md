@@ -1,9 +1,9 @@
 # WEB_UI_2017
-project files
+project information
 
-## This is my React project for LITS
+## This is React App project for LITS
 
-    it's application for monitoring your own  budget
+    It's application for monitoring budget.
 
 
 _program has such options_
@@ -20,11 +20,13 @@ _program has such options_
 
 
 _in this project I use_
+
    * React.js
    * JavaScript
-   * ES6
-   * NPM  from my package.json
-   * Webpack 2
+   * ES6 ES7
+   * Webpack 3
+   * package.json
+
 
 _ScreenShots from my React APP_
   ![Start_APP](./snap/Project___Start_APP.png)
