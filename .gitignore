@@ -48,5 +48,7 @@ Temporary Items
 
 
 
-# some folders
+# some folders and files
 /node_modules
+
+package-lock.json
