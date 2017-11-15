@@ -1,6 +1,6 @@
 {
   "name": "react_007",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,21 +12,30 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "file-loader": "^0.11.1",
-    "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5"
+    "babel-core": "latest",
+    "babel-loader": "latest",
+
+    "babel-preset-env": "latest",
+    "babel-preset-react": "latest",
+    "babel-preset-stage-2": "latest",
+    "babel-preset-stage-3": "latest",
+
+    "webpack": "latest",
+    "webpack-dev-server": "latest",
+
+    "file-loader": "latest"
+
   },
   "dependencies": {
-    "lodash": "^4.17.4",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-redux": "^5.0.5",
-    "react-router": "^4.1.1",
-    "redux": "^3.6.0"
+    "react": "latest",
+    "react-dom": "latest",
+
+    "redux": "latest",
+    "react-redux": "latest",
+
+    "react-router": "latest",
+
+    "lodash": "latest"
+
   }
 }
