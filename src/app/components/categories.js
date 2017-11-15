@@ -12,9 +12,9 @@ import Accounts from './all_accounts';
 
 
 //import images
-import exercise1 from '../../img/exercise1.png';
-import exercise2 from '../../img/exercise2.png';
-import exercise3 from '../../img/exercise3.png';
+import exercise1 from '../img/exercise1.png';
+import exercise2 from '../img/exercise2.png';
+import exercise3 from '../img/exercise3.png';
 
 
 
