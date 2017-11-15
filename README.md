@@ -4,6 +4,7 @@ project information
 ## This is React App project for LITS
 
     It's application for monitoring budget.
+    From first sight it looks very simple and ordinary but :-) my app has a lot of options & functionality. I suppose this react app should be enough { after few improvements :-) } for ordinary monitoring user's money by categories, different accounts, transactions. The task was to create from scratch app (from one line of code to complete program) instead of creation award winning design. That's why design style light :-)
 
 
 _program has such options_
