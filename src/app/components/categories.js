@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 import ReactDOM from 'react-dom';
 
-import Category from './category';
+import {Category} from './category';
 
 
 
-import GraphicCharts from './graphic_charts';
+import {GraphicCharts} from './graphic_charts';
 
-import Accounts from './all_accounts';
+import {Accounts} from './all_accounts';
 
 
 //import images
@@ -100,7 +100,7 @@ var accounts = [
 
 
 
-class Categories extends Component {
+export class Categories extends Component {
 
 
 
@@ -127,7 +127,29 @@ class Categories extends Component {
       showFormNewTRANSACTION: false
 
     };
+
+    // bind this for component functions
+    this.onBtnClickPLUStoCard = this.onBtnClickPLUStoCard.bind(this);
+    this.onBtnClickShowHideADD_DELL = this.onBtnClickShowHideADD_DELL.bind(this);
+    this.onNameChange = this.onNameChange.bind(this);
+    this.onIdChange = this.onIdChange.bind(this);
+    this.onBtnClickDellAcc = this.onBtnClickDellAcc.bind(this);
+    this.onBtnClickDellCat = this.onBtnClickDellCat.bind(this);
+    this.onNameAccountChange = this.onNameAccountChange.bind(this);
+    this.onBtnShowHideAccountForm = this.onBtnShowHideAccountForm.bind(this);
+    this.onBtnClickAddAcoount = this.onBtnClickAddAcoount.bind(this);
+    this.onBtnShowHideForm = this.onBtnShowHideForm.bind(this);
+    this.onBtnClick = this.onBtnClick.bind(this);
+    this.catSearch = this.catSearch.bind(this);
+    this.onBtnShowHideTRANSACTION = this.onBtnShowHideTRANSACTION.bind(this);
+    this.onBtnTransactionsClick = this.onBtnTransactionsClick.bind(this);
+
+
+
+
+
   }
+  // END of constructor
 
 
 
@@ -221,7 +243,7 @@ class Categories extends Component {
 
   }
 
-  //
+  //-----------------------------------------------END of Show Hide all butons and inputs
 
 
 
@@ -468,74 +490,74 @@ class Categories extends Component {
 
 
 
-      onBtnClickAddAcoount(e){
-        e.preventDefault();
-        // console.log( `this.state.allAccounts is ---> ${this.state.allAccounts}` );
-        console.log('this.state.allAccounts is ---> ', this.state.allAccounts);
-        console.log(this.state.allAccounts);
+  onBtnClickAddAcoount(e){
+    e.preventDefault();
+    // console.log( `this.state.allAccounts is ---> ${this.state.allAccounts}` );
+    console.log('this.state.allAccounts is ---> ', this.state.allAccounts);
+    console.log(this.state.allAccounts);
 
 
 
-        let a = {
+    let a = {
 
-          name: ReactDOM.findDOMNode(this.refs.add_new_account_name).value.trim(),
+      name: ReactDOM.findDOMNode(this.refs.add_new_account_name).value.trim(),
 
-          accounts_coins: ReactDOM.findDOMNode(this.refs.add_new_account_coins).value ?
-                  parseInt(ReactDOM.findDOMNode(this.refs.add_new_account_coins).value)
-                  :
-                  0
+      accounts_coins: ReactDOM.findDOMNode(this.refs.add_new_account_coins).value ?
+              parseInt(ReactDOM.findDOMNode(this.refs.add_new_account_coins).value)
+              :
+              0
 
-        };
-
-
-
-
-        console.log(a);
-        console.log(typeof(a));
-
-
-
-        let addNewOneAccount = this.state.allAccounts.concat([ a ]);
-        console.log(addNewOneAccount);
+    };
 
 
 
 
-        this.setState({
-          allAccounts: addNewOneAccount
-        },
-        () => (console.log('this.state.allAccounts is ---> ', this.state.allAccounts))
-
-      );
+    console.log(a);
+    console.log(typeof(a));
 
 
 
+    let addNewOneAccount = this.state.allAccounts.concat([ a ]);
+    console.log(addNewOneAccount);
 
 
-      // -----------------------------clean our inputs atribute value and set it to empty
-
-      let getInputs = document.getElementsByClassName('add_new_account_inputs');
-      // console.log(getInputs);
-      // console.log( 'typeof(getInputs)--->', typeof(getInputs));
-      // console.log('getInputs.length -----> ', getInputs.length);
-
-      // console.log(getInputs[0].value);
-      // console.log(getInputs[1].value);
 
 
-      for (var i = 0; i < getInputs.length; i++) {
-        getInputs[i].value = '';
+    this.setState({
+      allAccounts: addNewOneAccount
+    },
+    () => (console.log('this.state.allAccounts is ---> ', this.state.allAccounts))
 
-      }
+  );
 
 
 
 
 
-      this.setState({newAccountNameIsEmpty: true});
+  // -----------------------------clean our inputs atribute value and set it to empty
+
+  let getInputs = document.getElementsByClassName('add_new_account_inputs');
+  // console.log(getInputs);
+  // console.log( 'typeof(getInputs)--->', typeof(getInputs));
+  // console.log('getInputs.length -----> ', getInputs.length);
+
+  // console.log(getInputs[0].value);
+  // console.log(getInputs[1].value);
 
 
-      // -----------------------------END of clean our inputs atribute value and set it to empty
+  for (var i = 0; i < getInputs.length; i++) {
+    getInputs[i].value = '';
+
+  }
+
+
+
+
+
+  this.setState({newAccountNameIsEmpty: true});
+
+
+  // -----------------------------END of clean our inputs atribute value and set it to empty
 
 
 
@@ -543,7 +565,7 @@ class Categories extends Component {
 
 
 
-      }
+  }
 
 
 
@@ -619,97 +641,97 @@ class Categories extends Component {
 
 
   }
-    //--------------------- ADD NEW CATEGORY work with refs from form add category
+  //--------------------- ADD NEW CATEGORY work with refs from form add category
 
 
 
-    onBtnClick(e){
-      e.preventDefault();
+  onBtnClick(e){
+    e.preventDefault();
 
-      console.log('this.state.allCategories is ---> ', this.state.allCategories);
-      console.log(this.state.allCategories);
-
-
-
-
-
-      let a = {
-        id: ReactDOM.findDOMNode(this.refs.add_new_cat__id).value,
-        // name: ReactDOM.findDOMNode(this.refs.add_new_cat__name).value,
-        name: ReactDOM.findDOMNode(this.refs.add_new_cat__name).value.trim(),
-        image: exercise1,
-        transactions: [],
-        notes: ReactDOM.findDOMNode(this.refs.add_new_cat__notes).value.trim(),
-
-        // coins: ReactDOM.findDOMNode(this.refs.add_new_cat__coins).value
-        coins: ReactDOM.findDOMNode(this.refs.add_new_cat__coins).value ?
-                parseInt(ReactDOM.findDOMNode(this.refs.add_new_cat__coins).value)
-                :
-                0
-
-      };
+    console.log('this.state.allCategories is ---> ', this.state.allCategories);
+    console.log(this.state.allCategories);
 
 
 
 
 
-      console.log(a);
-      console.log(typeof(a));
+    let a = {
+      id: ReactDOM.findDOMNode(this.refs.add_new_cat__id).value,
+      // name: ReactDOM.findDOMNode(this.refs.add_new_cat__name).value,
+      name: ReactDOM.findDOMNode(this.refs.add_new_cat__name).value.trim(),
+      image: exercise1,
+      transactions: [],
+      notes: ReactDOM.findDOMNode(this.refs.add_new_cat__notes).value.trim(),
+
+      // coins: ReactDOM.findDOMNode(this.refs.add_new_cat__coins).value
+      coins: ReactDOM.findDOMNode(this.refs.add_new_cat__coins).value ?
+              parseInt(ReactDOM.findDOMNode(this.refs.add_new_cat__coins).value)
+              :
+              0
+
+    };
 
 
 
 
 
-      var addNewCat = this.state.allCategories.concat([ a ]);
-      console.log(addNewCat);
-
-      this.setState({
-        allCategories: addNewCat
-      },
-      () => (console.log('this.state.allCategories is ---> ', this.state.allCategories))
-
-    );
+    console.log(a);
+    console.log(typeof(a));
 
 
 
 
 
-    // -----------------------------clean our inputs atribute value and set it to empty
+    var addNewCat = this.state.allCategories.concat([ a ]);
+    console.log(addNewCat);
 
+    this.setState({
+      allCategories: addNewCat
+    },
+    () => (console.log('this.state.allCategories is ---> ', this.state.allCategories))
 
-
-    let getInputs = document.getElementsByClassName('add_new_cat_x');
-    console.log(getInputs);
-
-
-
-    console.log(getInputs[0].value);
-    console.log(getInputs[1].value);
-    console.log(getInputs[2].value);
-    console.log(getInputs[3].value);
-
-
-    for (var i = 0; i < getInputs.length; i++) {
-      getInputs[i].value = '';
-
-    }
-
-
-
-    if ( getInputs[0].value == '') {
-      this.setState({
-        nameIsEmpty: true,
-        idIsEmpty: true
-      })
-    }
-
-
-    // -----------------------------END of clean our inputs atribute value and set it to empty
+  );
 
 
 
 
-    }
+
+  // -----------------------------clean our inputs atribute value and set it to empty
+
+
+
+  let getInputs = document.getElementsByClassName('add_new_cat_x');
+  console.log(getInputs);
+
+
+
+  console.log(getInputs[0].value);
+  console.log(getInputs[1].value);
+  console.log(getInputs[2].value);
+  console.log(getInputs[3].value);
+
+
+  for (var i = 0; i < getInputs.length; i++) {
+    getInputs[i].value = '';
+
+  }
+
+
+
+  if ( getInputs[0].value == '') {
+    this.setState({
+      nameIsEmpty: true,
+      idIsEmpty: true
+    })
+  }
+
+
+  // -----------------------------END of clean our inputs atribute value and set it to empty
+
+
+
+
+  }
     //--------------------------------- END of  ADD NEW CATEGORY and work with refs
 
 
@@ -791,22 +813,22 @@ class Categories extends Component {
 
 
 
-onBtnShowHideTRANSACTION(e) {
-  e.preventDefault();
+  onBtnShowHideTRANSACTION(e) {
+    e.preventDefault();
 
-  console.log(this);
+    console.log(this);
 
 
 
-  this.setState({
-    showFormNewTRANSACTION: this.state.showFormNewTRANSACTION ? false : true
+    this.setState({
+      showFormNewTRANSACTION: this.state.showFormNewTRANSACTION ? false : true
+    }
+    , ()  => (console.log( 'this.state.showFormNewTRANSACTION', this.state.showFormNewTRANSACTION ) )
+  );
+
+
+
   }
-  , ()  => (console.log( 'this.state.showFormNewTRANSACTION', this.state.showFormNewTRANSACTION ) )
-);
-
-
-
-}
   // ------------------------------------------------Add new TRANSACTION
   onBtnTransactionsClick(e) {
     e.preventDefault();
@@ -1027,7 +1049,7 @@ onBtnShowHideTRANSACTION(e) {
 
 
         <button
-          onClick={this.onBtnClickShowHideADD_DELL.bind(this)}
+          onClick={this.onBtnClickShowHideADD_DELL}
           >
           ADD | DELL
         </button>
@@ -1091,7 +1113,7 @@ onBtnShowHideTRANSACTION(e) {
 
                     <button
 
-                      onClick={this.onBtnClickPLUStoCard.bind(this)}
+                      onClick={this.onBtnClickPLUStoCard}
 
                       >
                         PLUS TO ACCOUNT
@@ -1152,7 +1174,7 @@ onBtnShowHideTRANSACTION(e) {
 
                     <button
 
-                      onClick={this.onBtnClickDellAcc.bind(this)}
+                      onClick={this.onBtnClickDellAcc}
 
                       >
                         DELL ACCOUNT
@@ -1177,7 +1199,7 @@ onBtnShowHideTRANSACTION(e) {
 
                     <button
                       className='btn_show_hide_form'
-                      onClick={this.onBtnShowHideAccountForm.bind(this)}
+                      onClick={this.onBtnShowHideAccountForm}
 
                       >
                         New ACCOUNT
@@ -1201,7 +1223,7 @@ onBtnShowHideTRANSACTION(e) {
                           placeholder='account name'
                           ref='add_new_account_name'
 
-                          onChange={this.onNameAccountChange.bind(this)}
+                          onChange={this.onNameAccountChange}
                         />
 
 
@@ -1213,13 +1235,13 @@ onBtnShowHideTRANSACTION(e) {
                           placeholder='coins'
                           ref='add_new_account_coins'
 
-                          // onChange={this.onNameChange.bind(this)}
+
                         />
 
 
                         <button
                           className='add_new_account_button'
-                          onClick={this.onBtnClickAddAcoount.bind(this)}
+                          onClick={this.onBtnClickAddAcoount}
                           ref='add_new_account_button'
                           disabled={this.state.newAccountNameIsEmpty}
                           >
@@ -1300,7 +1322,7 @@ onBtnShowHideTRANSACTION(e) {
 
                     <button
                       // className='btn_add_new_cat'
-                      onClick={this.onBtnClickDellCat.bind(this)}
+                      onClick={this.onBtnClickDellCat}
 
                       >
                         DELL CATEGORY
@@ -1325,7 +1347,7 @@ onBtnShowHideTRANSACTION(e) {
 
                     <button
                       className='btn_show_hide_form'
-                      onClick={this.onBtnShowHideForm.bind(this)}
+                      onClick={this.onBtnShowHideForm}
                       // ref='btn_show_hide_form'
                       // disabled={nameIsEmpty}
                       >
@@ -1348,7 +1370,7 @@ onBtnShowHideTRANSACTION(e) {
                           placeholder='new category'
                           ref='add_new_cat__name'
 
-                          onChange={this.onNameChange.bind(this)}
+                          onChange={this.onNameChange}
                         />
 
                         <input
@@ -1358,7 +1380,7 @@ onBtnShowHideTRANSACTION(e) {
                           placeholder='id'
                           ref='add_new_cat__id'
 
-                          onChange={this.onIdChange.bind(this)}
+                          onChange={this.onIdChange}
                         />
 
                         <input
@@ -1368,7 +1390,7 @@ onBtnShowHideTRANSACTION(e) {
                           placeholder='notes'
                           ref='add_new_cat__notes'
 
-                          // onChange={this.onNameChange.bind(this)}
+
                         />
 
                         <input
@@ -1379,7 +1401,7 @@ onBtnShowHideTRANSACTION(e) {
                           placeholder='coins'
                           ref='add_new_cat__coins'
 
-                          // onChange={this.onNameChange.bind(this)}
+
                         />
 
 
@@ -1394,7 +1416,7 @@ onBtnShowHideTRANSACTION(e) {
 
                         <button
                           className='btn_add_new_cat'
-                          onClick={this.onBtnClick.bind(this)}
+                          onClick={this.onBtnClick}
                           ref='btn_add_new_cat'
                           disabled={nameIsEmpty || idIsEmpty }
                           >
@@ -1448,7 +1470,7 @@ onBtnShowHideTRANSACTION(e) {
 
                     <button
                       // className='btn_show_hide_form'
-                      onClick={this.onBtnShowHideTRANSACTION.bind(this)}
+                      onClick={this.onBtnShowHideTRANSACTION}
                       // ref='btn_show_hide_form'
                       // disabled={nameIsEmpty}
                       >
@@ -1471,7 +1493,7 @@ onBtnShowHideTRANSACTION(e) {
                           placeholder='add amount'
                           ref='add_new_t_a_coins'
 
-                          // onChange={this.onNameChange.bind(this)}
+
                         />
 
 
@@ -1495,7 +1517,7 @@ onBtnShowHideTRANSACTION(e) {
 
                           // value="2017-06-01T08:30"
 
-                          // onChange={this.onNameChange.bind(this)}
+
                         />
 
 
@@ -1541,7 +1563,7 @@ onBtnShowHideTRANSACTION(e) {
                           placeholder='Add Note'
                           ref='add_new_t_a_note'
 
-                          // onChange={this.onNameChange.bind(this)}
+
                         />
 
 
@@ -1585,7 +1607,7 @@ onBtnShowHideTRANSACTION(e) {
 
                         <button
                           // className='btn_add_new_cat'
-                          onClick={this.onBtnTransactionsClick.bind(this)}
+                          onClick={this.onBtnTransactionsClick}
                           // ref='btn_add_new_cat'
                           // disabled={nameIsEmpty || idIsEmpty }
                           >
@@ -1606,7 +1628,7 @@ onBtnShowHideTRANSACTION(e) {
                     placeholder="search category"
                     type="text"
                     className="search-field"
-                    onChange={this.catSearch.bind(this)} />
+                    onChange={this.catSearch} />
 
         </div>
 
@@ -1673,4 +1695,4 @@ onBtnShowHideTRANSACTION(e) {
   }
 }
 
-export default Categories;
+// export default Categories;

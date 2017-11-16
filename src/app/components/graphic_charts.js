@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class GraphicCharts extends Component {
+export class GraphicCharts extends Component {
 
 
   constructor(props) {
@@ -281,5 +281,3 @@ class GraphicCharts extends Component {
     );
   }
 }
-
-export default GraphicCharts;

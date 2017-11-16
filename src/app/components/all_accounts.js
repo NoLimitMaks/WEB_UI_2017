@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class Accounts extends Component {
+export class Accounts extends Component {
   render() {
 
 
@@ -34,5 +34,3 @@ class Accounts extends Component {
     );
   }
 }
-
-export default Accounts;

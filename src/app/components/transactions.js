@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class Transactions extends Component {
+export class Transactions extends Component {
 
 
 
@@ -49,5 +49,3 @@ class Transactions extends Component {
     );
   }
 }
-
-export default Transactions;

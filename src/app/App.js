@@ -4,7 +4,7 @@
 
 import React, { Component } from 'react';
 
-import Categories from './components/categories';
+import {Categories} from './components/categories';
 
 
 
@@ -13,16 +13,14 @@ import Categories from './components/categories';
 
 
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className="app">
-        
+
         <Categories />
 
       </div>
     );
   }
 }
-
-export default App;

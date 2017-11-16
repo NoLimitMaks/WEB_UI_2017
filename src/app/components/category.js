@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-import Transactions from './transactions';
+import {Transactions} from './transactions';
 
 
 
@@ -10,7 +10,7 @@ import Transactions from './transactions';
 
 
 
-class Category extends Component {
+export class Category extends Component {
 
   constructor(props) {
     super(props);
@@ -63,5 +63,3 @@ class Category extends Component {
     );
   }
 }
-
-export default Category;
