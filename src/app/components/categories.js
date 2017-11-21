@@ -11,7 +11,7 @@ import {GraphicCharts} from './graphic_charts';
 import {Accounts} from './all_accounts';
 
 
-//import images
+//import image
 import exercise1 from '../img/exercise1.png';
 import exercise2 from '../img/exercise2.png';
 import exercise3 from '../img/exercise3.png';
