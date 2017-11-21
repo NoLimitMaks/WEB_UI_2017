@@ -18,7 +18,7 @@ import exercise3 from '../img/exercise3.png';
 
 
 
-var cat = [
+const cat = [
   {
     id: '0001',
     name: 'transport',
@@ -70,7 +70,7 @@ var cat = [
 
 
 
-var accounts = [
+const accounts = [
   {
     name: 'VISA classic',
     accounts_coins: 1000
@@ -1014,8 +1014,8 @@ export class Categories extends Component {
 
 
 
-    var nameIsEmpty = this.state.nameIsEmpty;
-    var idIsEmpty  = this.state.idIsEmpty;
+    let nameIsEmpty = this.state.nameIsEmpty;
+    let idIsEmpty  = this.state.idIsEmpty;
 
 
     let todays = new Date();
