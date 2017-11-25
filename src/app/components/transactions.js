@@ -9,7 +9,7 @@ export class Transactions extends Component {
   render() {
 
 
-    var transactions_rend = this.props.transactions.length > 0 ?
+    const transactions_rend = this.props.transactions.length > 0 ?
                               this.props.transactions.map( (el, ind) => (
                                 <li
                                   className='transactions_lis'

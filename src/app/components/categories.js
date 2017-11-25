@@ -5,6 +5,10 @@ import ReactDOM from 'react-dom';
 import {Category} from './category';
 
 
+import {PlusToCard} from './plus_to_card.js';
+
+
+
 
 import {GraphicCharts} from './graphic_charts';
 
@@ -164,13 +168,19 @@ export class Categories extends Component {
   onBtnClickPLUStoCard (e) {
     e.preventDefault();
 
+    if(!(ReactDOM.findDOMNode(this.selectOption).value )){
+        return console.log('try select card from select options');
+    }
+
+    console.log('ReactDOM.findDOMNode(this.selectOption).value===>',
+    ReactDOM.findDOMNode(this.selectOption).value);
 
     // prepare data for change this.state.allAccounts
     let stateJSON_ACCOUNT = JSON.parse(JSON.stringify(this.state.allAccounts));
     console.log('stateJSON_ACCOUNT --->', stateJSON_ACCOUNT);
 
     let filterJSON_ACCOUNT = stateJSON_ACCOUNT.filter(
-      (el) => ( el.name == ReactDOM.findDOMNode(this.refs.plus_to_acccount).value )
+      (el) => ( el.name == ReactDOM.findDOMNode(this.selectOption).value )
     );
 
     console.log('filterJSON_ACCOUNT --->', filterJSON_ACCOUNT);
@@ -183,14 +193,16 @@ export class Categories extends Component {
     filterJSON_ACCOUNT[0].accounts_coins = filterJSON_ACCOUNT[0].accounts_coins
     +
     (
-      ReactDOM.findDOMNode(this.refs.plus_to_account_input).value ?
-              parseInt(ReactDOM.findDOMNode(this.refs.plus_to_account_input).value)
+      ReactDOM.findDOMNode(this.inputElem).value ?
+              parseInt(ReactDOM.findDOMNode(this.inputElem).value)
               :
               0
     );
     console.log('filterJSON_ACCOUNT[0].accounts_coins--> ', filterJSON_ACCOUNT[0].accounts_coins);
 
-
+    console.log('ReactDOM.findDOMNode(this.inputElem).value',
+      ReactDOM.findDOMNode(this.inputElem).value
+    );
 
 
 
@@ -216,6 +228,10 @@ export class Categories extends Component {
 
   }
   //---------------------------------------------  END for Plus to CARD
+
+
+
+
 
 
 
@@ -1065,61 +1081,12 @@ export class Categories extends Component {
 
                   {/* div for PLUS to CARD */}
 
-                  <div className='top_div_a'>
+                  <PlusToCard
+                    plus_to_acccount_Ref={el => this.selectOption = el}
+                    plus_to_account_input_Ref={el => this.inputElem = el}
 
-                    <select
-                      // name="select"
-                      className='plus_to_acccount'
-                      ref='plus_to_acccount'
-                      >
-
-                      <option value="" disabled selected>Select CARD</option>
-                      {/* <option value="">Value 2</option> */}
-                      {/* <option value="">Value 3</option> */}
-
-
-                    {
-                      this.state.allAccounts.map( (elem, k) =>
-                        (
-                          <option
-                            key={k}
-                            value={elem.name}
-
-                            >
-                              {elem.name}
-                            </option>
-                        )
-                      )
-                    }
-
-
-
-                    </select>
-
-
-                    <input
-                      // type='text'
-                      type='number'
-                      className='plus_to_account_input'
-                      // defaultValue=''
-                      placeholder='plus to card'
-                      ref='plus_to_account_input'
-
-
-                    />
-
-
-
-
-                    <button
-
-                      onClick={this.onBtnClickPLUStoCard}
-
-                      >
-                        PLUS TO ACCOUNT
-                    </button>
-                  </div>
-
+                    allAccounts={this.state.allAccounts}
+                    onBtnClickPLUStoCard={this.onBtnClickPLUStoCard} />
 
                   {/* END of div PLUS to CARD */}
 
