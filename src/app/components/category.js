@@ -17,12 +17,14 @@ export class Category extends Component {
     this.state = {
       visible: false
     };
+
+    this.transactionsOnClick = this.transactionsOnClick.bind(this);
   }
 
   transactionsOnClick(e) {
     e.preventDefault();
 
-    var visibleChanged = this.state.visible ? false : true;
+    const visibleChanged = this.state.visible ? false : true;
 
     this.setState({
       visible: visibleChanged
@@ -37,7 +39,7 @@ export class Category extends Component {
     return (
       <li
         className=""
-        onClick={this.transactionsOnClick.bind(this)}>
+        onClick={this.transactionsOnClick}>
 
         <div className="category">
           <img className="category_image" src={this.props.image} width="50px" height="50px" alt="x" />
