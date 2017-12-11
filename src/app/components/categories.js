@@ -24,6 +24,8 @@ import exercise3 from '../img/exercise3.png';
 // sessionStorage  sessionStorage.setItem("a", JSON.stringify( [ {a: 100} ] ) );
 // sessionStorage.setItem("a", JSON.stringify() ); // => undefined;
 // sessionStorage.setItem("a", JSON.stringify( [ {a: 100} ] ) );
+// sessionStorage.removeItem("accounts");
+// sessionStorage.removeItem("cat");
 
 if ( sessionStorage.getItem("cat")  == undefined  ) {
   sessionStorage.setItem("cat", JSON.stringify(
@@ -223,6 +225,11 @@ export class Categories extends Component {
       allAccounts: allAccounts
     });
 
+    sessionStorage.setItem("accounts", JSON.stringify(
+      allAccounts
+    ) );
+
+    
 
   }
   //---------------------------------------------  END for Plus to CARD
@@ -384,6 +391,10 @@ export class Categories extends Component {
 
 
 
+  sessionStorage.setItem("accounts", JSON.stringify(
+    filterJSON_Dell_Acc
+  ) );
+
 
 
   }
@@ -418,6 +429,12 @@ export class Categories extends Component {
   );
 
 
+
+
+
+  sessionStorage.setItem("cat", JSON.stringify(
+    filterJSON_Dell_Cat
+  ) );
 
 
 
@@ -544,6 +561,10 @@ export class Categories extends Component {
 
   );
 
+
+  sessionStorage.setItem("accounts", JSON.stringify(
+    addNewOneAccount
+  ) );
 
 
 
@@ -706,6 +727,10 @@ export class Categories extends Component {
 
   );
 
+
+  sessionStorage.setItem("cat", JSON.stringify(
+    addNewCat
+  ) );
 
 
 
@@ -988,6 +1013,13 @@ export class Categories extends Component {
 
 
 
+    sessionStorage.setItem("cat", JSON.stringify(
+      allCategories
+    ) );
+
+    sessionStorage.setItem("accounts", JSON.stringify(
+      allAccounts
+    ) );
 
 
 
