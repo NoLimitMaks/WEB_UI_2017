@@ -20,86 +20,82 @@ import exercise1 from '../img/exercise1.png';
 import exercise2 from '../img/exercise2.png';
 import exercise3 from '../img/exercise3.png';
 
+// just testing sessionStorage.setItem("a", JSON.stringify( [ {a: 100} ] ) );
+// sessionStorage  sessionStorage.setItem("a", JSON.stringify( [ {a: 100} ] ) );
+// sessionStorage.setItem("a", JSON.stringify() ); // => undefined;
+// sessionStorage.setItem("a", JSON.stringify( [ {a: 100} ] ) );
 
+if ( sessionStorage.getItem("cat")  == undefined  ) {
+  sessionStorage.setItem("cat", JSON.stringify(
+    [
+      {
+        id: '0001',
+        name: 'transport',
+        image: exercise1,
+        transactions: [],
+        notes: '',
+        coins: 10
+      },
+      {
+        id: '0002',
+        name: 'restaurants',
+        image: exercise2,
+        transactions: [],
+        coins: 10
+      },
+      {
+        id: '0003',
+        name: 'cafe',
+        image: exercise3,
+        transactions: [],
+        coins: 10
+      },
+      {
+        id: '0004',
+        name: 'fun',
+        image: exercise1,
+        transactions: [],
+        coins: 10
+      },
+      {
+        id: '0005',
+        name: 'food',
+        image: exercise1,
+        transactions: [],
+        coins: 10
+      }
 
-const cat = [
-  {
-    id: '0001',
-    name: 'transport',
-    image: exercise1,
-    transactions: [],
-    notes: '',
-    coins: 10
-  },
-  {
-    id: '0002',
-    name: 'restaurants',
-    image: exercise2,
-    transactions: [],
-    coins: 10
-  },
-  {
-    id: '0003',
-    name: 'cafe',
-    image: exercise3,
-    transactions: [],
-    coins: 10
-  },
-  {
-    id: '0004',
-    name: 'fun',
-    image: exercise1,
-    transactions: [],
-    coins: 10
-  },
-  {
-    id: '0005',
-    name: 'food',
-    image: exercise1,
-    transactions: [],
-    coins: 10
-  }
-
-
-
-
-
-
-];
-
-
-
-
-
-
-
-
-const accounts = [
-  {
-    name: 'VISA classic',
-    accounts_coins: 1000
-  },
-  {
-    name: 'VISA gold',
-    accounts_coins: 5000
-  },
-  {
-    name: 'MASTERCARD gold',
-    accounts_coins: 2000
-  },
-  {
-    name: 'MASTERCARD classic',
-    accounts_coins: 2000
-  }
-
-
-];
+    ]
+  ) );
+}
 
 
 
 
+if ( sessionStorage.getItem("accounts")  == undefined  ) {
+  sessionStorage.setItem("accounts", JSON.stringify(
+    [
+      {
+        name: 'VISA classic',
+        accounts_coins: 1000
+      },
+      {
+        name: 'VISA gold',
+        accounts_coins: 5000
+      },
+      {
+        name: 'MASTERCARD gold',
+        accounts_coins: 2000
+      },
+      {
+        name: 'MASTERCARD classic',
+        accounts_coins: 2000
+      }
 
 
+    ]
+  ) );
+}
 
 
 
@@ -113,8 +109,10 @@ export class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allCategories: cat,
-      allAccounts: accounts,
+      // allCategories: cat,
+      // allAccounts: accounts,
+      allCategories: JSON.parse( sessionStorage.getItem("cat") ),
+      allAccounts: JSON.parse( sessionStorage.getItem("accounts") ),
 
 
       //for addTransation
