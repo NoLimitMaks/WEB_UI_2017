@@ -24,11 +24,11 @@ import exercise3 from '../img/exercise3.png';
 // sessionStorage  sessionStorage.setItem("a", JSON.stringify( [ {a: 100} ] ) );
 // sessionStorage.setItem("a", JSON.stringify() ); // => undefined;
 // sessionStorage.setItem("a", JSON.stringify( [ {a: 100} ] ) );
-// sessionStorage.removeItem("accounts");
-// sessionStorage.removeItem("cat");
+// localStorage.removeItem("accounts");
+// localStorage.removeItem("cat");
 
-if ( sessionStorage.getItem("cat")  == undefined  ) {
-  sessionStorage.setItem("cat", JSON.stringify(
+if ( localStorage.getItem("cat")  == undefined  ) {
+  localStorage.setItem("cat", JSON.stringify(
     [
       {
         id: '0001',
@@ -74,8 +74,8 @@ if ( sessionStorage.getItem("cat")  == undefined  ) {
 
 
 
-if ( sessionStorage.getItem("accounts")  == undefined  ) {
-  sessionStorage.setItem("accounts", JSON.stringify(
+if ( localStorage.getItem("accounts")  == undefined  ) {
+  localStorage.setItem("accounts", JSON.stringify(
     [
       {
         name: 'VISA classic',
@@ -113,8 +113,8 @@ export class Categories extends Component {
     this.state = {
       // allCategories: cat,
       // allAccounts: accounts,
-      allCategories: JSON.parse( sessionStorage.getItem("cat") ),
-      allAccounts: JSON.parse( sessionStorage.getItem("accounts") ),
+      allCategories: JSON.parse( localStorage.getItem("cat") ),
+      allAccounts: JSON.parse( localStorage.getItem("accounts") ),
 
 
       //for addTransation
@@ -225,11 +225,11 @@ export class Categories extends Component {
       allAccounts: allAccounts
     });
 
-    sessionStorage.setItem("accounts", JSON.stringify(
+    localStorage.setItem("accounts", JSON.stringify(
       allAccounts
     ) );
 
-    
+
 
   }
   //---------------------------------------------  END for Plus to CARD
@@ -391,7 +391,7 @@ export class Categories extends Component {
 
 
 
-  sessionStorage.setItem("accounts", JSON.stringify(
+  localStorage.setItem("accounts", JSON.stringify(
     filterJSON_Dell_Acc
   ) );
 
@@ -432,7 +432,7 @@ export class Categories extends Component {
 
 
 
-  sessionStorage.setItem("cat", JSON.stringify(
+  localStorage.setItem("cat", JSON.stringify(
     filterJSON_Dell_Cat
   ) );
 
@@ -562,7 +562,7 @@ export class Categories extends Component {
   );
 
 
-  sessionStorage.setItem("accounts", JSON.stringify(
+  localStorage.setItem("accounts", JSON.stringify(
     addNewOneAccount
   ) );
 
@@ -728,7 +728,7 @@ export class Categories extends Component {
   );
 
 
-  sessionStorage.setItem("cat", JSON.stringify(
+  localStorage.setItem("cat", JSON.stringify(
     addNewCat
   ) );
 
@@ -1013,11 +1013,11 @@ export class Categories extends Component {
 
 
 
-    sessionStorage.setItem("cat", JSON.stringify(
+    localStorage.setItem("cat", JSON.stringify(
       allCategories
     ) );
 
-    sessionStorage.setItem("accounts", JSON.stringify(
+    localStorage.setItem("accounts", JSON.stringify(
       allAccounts
     ) );
 
